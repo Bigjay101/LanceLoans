@@ -10,9 +10,28 @@ server = os.getenv('DB_SERVER')
 database = os.getenv('DB_NAME')
 username = os.getenv('DB_USER')
 password = os.getenv('DB_PASSWORD')
-driver = '{ODBC Driver 17 for SQL Server}'
-conn_str = f'mssql+pyodbc:///?odbc_connect={urllib.parse.quote_plus(f"DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}")}'
+# driver = '{ODBC Driver 17 for SQL Server}'
+driver = '{ODBC Driver 18 for SQL Server}'
+
+conn_str = (
+    "mssql+pyodbc:///?odbc_connect="
+    + urllib.parse.quote_plus(
+        f"DRIVER={driver};"
+        f"SERVER={server};"
+        f"DATABASE={database};"
+        f"UID={username};"
+        f"PWD={password};"
+        "Encrypt=yes;"
+        "TrustServerCertificate=yes;"
+        "Connection Timeout=30;"
+    )
+)
+
+
 engine = create_engine(conn_str)
+
+# conn_str = f'mssql+pyodbc:///?odbc_connect={urllib.parse.quote_plus(f"DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}")}'
+# engine = create_engine(conn_str)
 
 CACHE_FILE = "lance_loans_cache.parquet"
 
