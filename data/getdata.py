@@ -58,6 +58,5 @@ def get_data(refresh=False):
 
 # Day-to-day work (Instant load):
 df = get_data() 
-
 # When you know new data was added to the DB:
 # df = get_data(refresh=True)
