@@ -1,2 +1,2 @@
 # LanceLoans
-Small web app that suggests to users whether or not they should apply for a loan, depending on certain factors and questions that they answer 
+Machine Learning Model hat Determines whether or not individuals will default on a bike loan, depending on certain factors and questions that they answer 
